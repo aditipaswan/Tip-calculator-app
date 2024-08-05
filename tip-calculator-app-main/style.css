@@ -1,0 +1,465 @@
+:root {
+    --Strong-cyan: hsl(172, 67%, 45%);
+    --Very-dark-cyan: hsl(183, 100%, 15%);
+    --dark-cyan: hsl(183, 78%, 24%);
+    --Dark-grayish-cyan: hsl(186, 14%, 43%);
+    --Grayish-cyan: hsl(184, 14%, 56%);
+    --light-cyan: hsl(172, 61%, 77%);
+    --Light-grayish-cyan: hsl(185, 41%, 84%);
+    --Very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+    --light-red: hsl(13, 70%, 61%);
+  }
+  
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Prevent font size inflation */
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    box-sizing: border-box;
+  }
+  
+  /* Smooth scroll */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  
+  /* Remove default margin in favour of better control in authored CSS */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin-block-end: 0;
+  }
+  
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+  }
+  
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+  
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  
+  * {
+    margin: 0;
+  }
+  
+  /* Set shorter line heights on headings and interactive elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+  
+  /* Balance text wrapping on headings */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+  
+  /* A elements that don't have a class get default styles */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+  }
+  
+  /* Make images easier to work with */
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+  
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  
+  /* Make sure textareas without a rows attribute are not tiny */
+  textarea:not([rows]) {
+    min-height: 10em;
+  }
+  
+  /* Anything that has been anchored to should have extra scroll margin */
+  :target {
+    scroll-margin-block: 5ex;
+  }
+  
+  body {
+    font-family: "Space Mono", monospace;
+    background-color: var(--Light-grayish-cyan);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    margin-block-start: 3.125rem;
+    width: 100%;
+    max-width: 57.5rem;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: var(--White);
+    box-shadow: 0 2rem 2.6875rem rgba(79, 166, 175, 0.200735);
+    border-radius: 1.5625rem 1.5625rem 0 0;
+    padding-inline: 1.5rem;
+    padding-block: 2rem;
+    width: 100%;
+  }
+  
+  .form__section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+  }
+  
+  .form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+  
+  .form__group--tip {
+    padding: 0;
+    border: transparent;
+    gap: 1rem;
+  }
+  
+  .form__label-tip {
+    margin-bottom: 1rem;
+  }
+  
+  .form__label-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .form__label,
+  .form__warning {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .form__label {
+    color: var(--Grayish-cyan);
+  }
+  
+  .form__warning {
+    color: var(--light-red);
+    display: none;
+  }
+  
+  .form__input {
+    background: var(--Very-light-grayish-cyan);
+    border-radius: 0.3125rem;
+    border: transparent;
+    padding-inline: 1rem;
+    padding-block: 0.375rem;
+    text-align: right;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    color: var(--Very-dark-cyan);
+    width: 100%;
+  }
+  
+  .form__input:focus {
+    outline: 2px solid var(--Strong-cyan);
+  }
+  
+  .form__input-bill,
+  .form__input-people {
+    background-repeat: no-repeat;
+    background-position: 1rem center;
+  }
+  
+  .form__input-bill {
+    background-image: url("images/icon-dollar.svg");
+  }
+  
+  .form__input-people {
+    background-image: url("images/icon-person.svg");
+  }
+  
+  .form__input::placeholder {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    text-align: right;
+    color: var(--Very-dark-cyan);
+    mix-blend-mode: normal;
+    opacity: 0.35;
+  }
+  
+  .form__input--custom {
+    padding-inline: 0.875rem;
+    padding-block: 0.375rem;
+    width: 100%;
+  }
+  
+  .form__tip-options {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(7.375rem, 1fr));
+    gap: 0.9375rem;
+  }
+  
+  .form__tip-label {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--White);
+    position: relative;
+    width: 100%;
+    padding-inline: 0.875rem;
+    padding-block: 0.375rem;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  .form__tip-label-custom {
+    background: var(--Very-light-grayish-cyan);
+    border-radius: 0.3125rem;
+    padding: 0;
+  }
+  
+  input[type="radio"] {
+    z-index: -1;
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font: inherit;
+    color: currentColor;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.3125rem;
+    border: 1px solid currentColor;
+    cursor: pointer;
+  }
+  
+  input[type="radio"]::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.3125rem;
+    background-color: var(--Very-dark-cyan);
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  input[type="radio"]:checked::before {
+    background-color: var(--Strong-cyan);
+    z-index: 1;
+  }
+  
+  input[type="radio"]:focus-visible::before {
+    background-color: var(--light-cyan);
+    outline: 1px solid var(--Strong-cyan);
+    outline-offset: -1px;
+  }
+  
+  input[type="radio"]:hover::before {
+    background-color: var(--light-cyan);
+  }
+  
+  input[type="radio"]:focus-visible {
+    background-color: var(--light-cyan);
+    outline: 1px solid var(--Strong-cyan);
+    outline-offset: -1px;
+  }
+  
+  .form__results {
+    background-color: var(--Very-dark-cyan);
+    border-radius: 0.9375rem;
+    padding-block-start: 2.3125rem;
+    padding-inline: 1.5rem;
+    padding-block-end: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+  
+  .form__results-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .form__result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .form__result-label {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--White);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form__result-label span {
+    font-size: 0.8125rem;
+    line-height: 1;
+    color: var(--Grayish-cyan);
+  }
+  
+  .form__result-output {
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 2.9375rem;
+    text-align: right;
+    letter-spacing: -0.666667px;
+    color: var(--Strong-cyan);
+  }
+  
+  .form__button {
+    background: var(--dark-cyan);
+    border: transparent;
+    border-radius: 0.3125rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--Very-dark-cyan);
+    cursor: pointer;
+    padding: 0.5625em;
+    transition: background 0.3s ease;
+  }
+  
+  .form__button:hover {
+    background: var(--light-cyan);
+  }
+  
+  .form__button:focus {
+    outline: 2px solid var(--Strong-cyan);
+    outline-offset: 2px;
+    background: var(--light-cyan);
+  }
+  
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  @media screen and (min-width: 37.5rem) {
+    body {
+      padding-inline: 1.5rem;
+    }
+  }
+  
+  @media screen and (min-width: 46.9375rem) {
+    .main {
+      gap: 5.4375rem;
+      margin-block-end: 6.875rem;
+    }
+  
+    .form {
+      flex-direction: row;
+      gap: 3rem;
+      padding-inline-start: 3rem;
+      padding-inline-end: 2rem;
+      border-radius: 1.5625rem;
+    }
+  
+    .form__section {
+      gap: 2.5rem;
+    }
+  
+    .form__tip-options {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  
+    .form__results {
+      padding-inline: 2.5rem;
+      padding-block: 2.5rem;
+      gap: 7.625rem;
+    }
+  
+    .form__result-output {
+      font-size: 3rem;
+      line-height: 4.4375rem;
+      letter-spacing: -1px;
+    }
+  }
